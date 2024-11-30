@@ -1,0 +1,26 @@
+package com.activitylogger.service;
+
+import org.springframework.stereotype.Service;
+
+import com.activitylogger.dto.ActivityLogDTO;	
+import com.activitylogger.model.ActivityLog;
+import com.activitylogger.repository.ActivityLogRepository;
+
+@Service
+public class AcitivityLogService {
+	
+	
+	private final ActivityLogRepository repository;
+	
+	public AcitivityLogService(ActivityLogRepository repository) {
+		this.repository = repository;
+	}
+	
+	public ActivityLogDTO create(ActivityLogDTO activityLogDTO) {
+		
+		ActivityLog activityLog = activityLogDTO.toEntity();
+		ActivityLog saveLog = repository.save(activityLog);
+		return activityLogDTO.fromEntity(activityLog);
+		
+	}
+}

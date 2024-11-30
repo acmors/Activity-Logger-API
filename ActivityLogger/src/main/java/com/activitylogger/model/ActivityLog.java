@@ -23,8 +23,7 @@ public class ActivityLog {
 		
 	}
 	
-	public ActivityLog(Long id, String user, String action, LocalDateTime timeStamp) {
-		this.id = id;
+	public ActivityLog (String user, String action, LocalDateTime timeStamp) {
 		this.user = user;
 		this.action = action;
 		this.timeStamp = timeStamp;

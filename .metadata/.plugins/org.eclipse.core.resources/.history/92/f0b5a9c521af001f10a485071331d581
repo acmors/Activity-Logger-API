@@ -1,0 +1,5 @@
+package com.activitylogger.repository;
+
+public class ActivityLogRepository {
+
+}

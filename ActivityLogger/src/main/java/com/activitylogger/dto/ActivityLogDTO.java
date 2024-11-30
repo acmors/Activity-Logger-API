@@ -2,6 +2,8 @@ package com.activitylogger.dto;
 
 import java.time.LocalDateTime;
 
+import com.activitylogger.model.ActivityLog;
+
 public class ActivityLogDTO {
 
 	private String user;
@@ -12,6 +14,10 @@ public class ActivityLogDTO {
 		this.user = user;
 		this.action = action;
 		this.timeStamp = timeStamp;
+	}
+	
+	public ActivityLogDTO() {
+		
 	}
 
 	public String getUser() {
@@ -38,6 +44,16 @@ public class ActivityLogDTO {
 		this.timeStamp = timeStamp;
 	}
 	
+	
+	public ActivityLogDTO fromEntity(ActivityLog activityLog) {
+		return new ActivityLogDTO(activityLog.getUser(), activityLog.getAction(), activityLog.getTimeStamp());
+	}
+	
+	
+	public ActivityLog toEntity() {
+		
+		return new ActivityLog(this.user, this.action, this.timeStamp);
+	}
 	
 	
 	

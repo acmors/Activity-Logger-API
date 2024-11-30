@@ -1,0 +1,22 @@
+package com.activitylogger.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.activitylogger.dto.ActivityLogDTO;
+import com.activitylogger.repository.ActivityLogRepository;
+
+@Service
+public class AcitivityLogService {
+	
+	
+	private final ActivityLogRepository repository;
+	
+	public AcitivityLogService(ActivityLogRepository repository) {
+		this.repository = repository;
+	}
+	
+	public ActivityLogDTO create(ActivityLogDTO activityLogDTO) {
+		
+	}
+}
