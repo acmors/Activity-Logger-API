@@ -3,7 +3,6 @@ INDEX VERSION 1.134+C:\Users\marcos\Desktop\ActivityLogger\.metadata\.plugins\or
 3800091562.index
 1865797976.index
 714132837.index
-193496004.index
 4181276428.index
 2269878726.index
 1170641782.index
