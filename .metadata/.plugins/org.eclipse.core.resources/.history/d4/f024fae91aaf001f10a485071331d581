@@ -1,0 +1,5 @@
+package com.activitylogger.model;
+
+public class ActivityLog {
+
+}
