@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.activitylogger.dto.ActivityLogDTO;
 import com.activitylogger.service.ActivityLogService;
+
+import jakarta.validation.Valid;
 	
 @RestController
 @RequestMapping("/api/activity")
@@ -28,7 +30,7 @@ public class ActivityLogController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<ActivityLogDTO> create(@RequestBody ActivityLogDTO dto){
+	public ResponseEntity<ActivityLogDTO> create(@Valid @RequestBody ActivityLogDTO dto){
 		
 		ActivityLogDTO createLog = service.create(dto);
 		return ResponseEntity.status(HttpStatus.CREATED).body(createLog);
@@ -42,7 +44,7 @@ public class ActivityLogController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<ActivityLogDTO> update(@PathVariable Long id, @RequestBody ActivityLogDTO update){
+	public ResponseEntity<ActivityLogDTO> update(@PathVariable Long id, @Valid @RequestBody ActivityLogDTO update){
 		
 		ActivityLogDTO updateLog = service.update(id, update);
 		

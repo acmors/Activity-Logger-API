@@ -4,10 +4,20 @@ import java.time.LocalDateTime;
 
 import com.activitylogger.model.ActivityLog;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 public class ActivityLogDTO {
 
+	@NotNull(message = "Username is required.")
+	@Size(min = 3, max = 50)
 	private String username;
+	
+	@NotNull(message = "Action is required.")
+	@Size(min = 3, max = 100)
 	private String action;
+	
+	@NotNull(message = "Timestamp is required.")
 	private LocalDateTime timeStamp;
 	
 	public ActivityLogDTO(String username, String action, LocalDateTime timeStamp) {

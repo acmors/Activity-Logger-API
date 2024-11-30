@@ -21,6 +21,7 @@ public class ActivityLogService {
 	public ActivityLogDTO create(ActivityLogDTO activityLogDTO) {
 		
 		ActivityLog activityLog = activityLogDTO.toEntity();
+		ActivityLog savedLog = repository.save(activityLog);
 		return activityLogDTO.fromEntity(activityLog);
 		
 	}
