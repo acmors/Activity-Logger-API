@@ -30,7 +30,7 @@ public class ActivityLogService {
 		List<ActivityLogDTO> logDTO = new ArrayList<>();
 		
 		for(ActivityLog log : logs) {
-			ActivityLogDTO dto = new ActivityLogDTO(log.getUser(), log.getAction(), log.getTimeStamp());
+			ActivityLogDTO dto = new ActivityLogDTO(log.getUsername(), log.getAction(), log.getTimeStamp());
 			logDTO.add(dto);
 		}
 		
@@ -45,7 +45,7 @@ public class ActivityLogService {
 		}
 		
 		ActivityLog existingLog = existLog.get();
-		existingLog.setUser(updateLog.getUser());
+		existingLog.setUsername(updateLog.getUsername());
 		existingLog.setAction(updateLog.getAction());
 		existingLog.setTimeStamp(updateLog.getTimeStamp());
 		

@@ -6,12 +6,12 @@ import com.activitylogger.model.ActivityLog;
 
 public class ActivityLogDTO {
 
-	private String user;
+	private String username;
 	private String action;
 	private LocalDateTime timeStamp;
 	
-	public ActivityLogDTO(String user, String action, LocalDateTime timeStamp) {
-		this.user = user;
+	public ActivityLogDTO(String username, String action, LocalDateTime timeStamp) {
+		this.username = username;
 		this.action = action;
 		this.timeStamp = timeStamp;
 	}
@@ -20,12 +20,12 @@ public class ActivityLogDTO {
 		
 	}
 
-	public String getUser() {
-		return user;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUser(String user) {
-		this.user = user;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getAction() {
@@ -46,13 +46,13 @@ public class ActivityLogDTO {
 	
 	
 	public ActivityLogDTO fromEntity(ActivityLog activityLog) {
-		return new ActivityLogDTO(activityLog.getUser(), activityLog.getAction(), activityLog.getTimeStamp());
+		return new ActivityLogDTO(activityLog.getUsername(), activityLog.getAction(), activityLog.getTimeStamp());
 	}
 	
 	
 	public ActivityLog toEntity() {
 		
-		return new ActivityLog(this.user, this.action, this.timeStamp);
+		return new ActivityLog(this.username, this.action, this.timeStamp);
 	}
 	
 	
