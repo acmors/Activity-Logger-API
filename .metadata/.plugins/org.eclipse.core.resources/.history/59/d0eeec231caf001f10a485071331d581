@@ -1,0 +1,5 @@
+package com.activitylogger.dto;
+
+public class ActivityLogDTO {
+
+}
