@@ -2,7 +2,10 @@ package com.activitylogger.model;
 
 import java.time.LocalDateTime;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import com.activitylogger.dto.ActivityLogDTO;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,6 +20,9 @@ public class ActivityLog {
 	private Long id;
 	private String username;
 	private String action;
+	
+	@CreationTimestamp
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm")
 	private LocalDateTime timeStamp;
 	
 	public ActivityLog() {

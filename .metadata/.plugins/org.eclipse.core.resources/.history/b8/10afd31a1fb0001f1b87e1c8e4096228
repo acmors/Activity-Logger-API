@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Atividades</title>
+</head>
+<body>
+    <h1>Atividades Registradas</h1>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Usuário</th>
+                <th>Ação</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="activity : ${activities}">
+                <td th:text="${activity.username}">Usuário</td>
+                <td th:text="${activity.action}">Ação</td>
+                <td th:text="${activity.timeStamp}">Data e Hora</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

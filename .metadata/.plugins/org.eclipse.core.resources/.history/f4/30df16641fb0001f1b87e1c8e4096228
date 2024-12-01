@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Lista de Atividades</title>
+<style>
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: #f4f4f9;
+}
+
+.container {
+	text-align: center;
+	background: #fff;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	padding: 20px;
+	width: 80%;
+	max-width: 600px;
+}
+
+h1 {
+	color: #333;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 20px;
+}
+
+th, td {
+	padding: 10px;
+	text-align: left;
+	border: 1px solid #ddd;
+}
+
+th {
+	background-color: #007BFF;
+	color: white;
+}
+
+tr:nth-child(even) {
+	background-color: #f9f9f9;
+}
+</style>
+</head>
+<body>
+	<h1>Atividades Registradas</h1>
+
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Usuário</th>
+				<th>Ação</th>
+				<th>Timestamp</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="activity : ${activities}">
+				<td th:text="${activity.username}">Usuário</td>
+				<td th:text="${activity.action}">Ação</td>
+				<td th:text="${activity.timeStamp}">Data e Hora</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

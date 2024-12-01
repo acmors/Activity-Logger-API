@@ -66,4 +66,13 @@ public class ActivityLogService {
 		repository.deleteById(id);
 		return true;
 	}
+	
+	public List<String> getAllActivityNames() {
+	    List<ActivityLog> logs = repository.findAll();
+	    List<String> names = new ArrayList<>();
+	    for (ActivityLog log : logs) {
+	        names.add(log.getAction()); 
+	    }
+	    return names;
+	}
 }

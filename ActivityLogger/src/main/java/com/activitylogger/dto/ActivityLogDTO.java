@@ -1,8 +1,12 @@
 package com.activitylogger.dto;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import com.activitylogger.model.ActivityLog;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -17,7 +21,8 @@ public class ActivityLogDTO {
 	@Size(min = 3, max = 100)
 	private String action;
 	
-	@NotNull(message = "Timestamp is required.")
+	@CreationTimestamp 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
 	private LocalDateTime timeStamp;
 	
 	public ActivityLogDTO(String username, String action, LocalDateTime timeStamp) {
@@ -65,6 +70,9 @@ public class ActivityLogDTO {
 		return new ActivityLog(this.username, this.action, this.timeStamp);
 	}
 	
-	
+    public static String formatTimeStamp(LocalDateTime timeStamp) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        return timeStamp.format(formatter);
+    }
 	
 }

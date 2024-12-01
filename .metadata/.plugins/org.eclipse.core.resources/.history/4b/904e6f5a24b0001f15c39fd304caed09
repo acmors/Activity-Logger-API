@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Atividades</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-start; /* Alinha o conteúdo no topo */
+            align-items: center;
+            flex-direction: column; /* Empilhar elementos no centro horizontal */
+            min-height: 100vh;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            margin-top: 50px; /* Adiciona espaçamento inicial */
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px; /* Espaço entre título e tabela */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Atividades Registradas</h1>
+        
+        <table id="activity-table">
+            <thead>
+                <tr>
+                    <th>Usuário</th>
+                    <th>Ação</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- As linhas serão adicionadas dinamicamente via Thymeleaf e JS -->
+                <tr th:each="activity : ${activities}">
+                    <td th:text="${activity.username}">Usuário</td>
+                    <td th:text="${activity.action}">Ação</td>
+                    <td th:text="${activity.timeStamp}">Data e Hora</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Script para formatar as datas -->
+    <script>
+        // Função para formatar o timestamp para o formato desejado
+        function formatTimestamp(timestamp) {
+            const date = new Date(timestamp);
+            return date.toLocaleString('pt-BR', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+
+        // Função para formatar todas as datas na tabela após o carregamento
+        function formatTableTimestamps() {
+            // Seleciona todas as células da tabela que contêm timestamps
+            const timestampCells = document.querySelectorAll('#activity-table tbody td:nth-child(3)');
+            
+            // Para cada célula de timestamp, formata a data
+            timestampCells.forEach(cell => {
+                const timestamp = cell.innerText.trim();  // Pega o texto da célula
+                const formattedDate = formatTimestamp(timestamp);  // Formata a data
+                cell.innerText = formattedDate;  // Substitui o texto da célula pela data formatada
+            });
+        }
+
+        // Quando o DOM estiver completamente carregado, formate as datas
+        document.addEventListener('DOMContentLoaded', formatTableTimestamps);
+    </script>
+</body>
+</html>

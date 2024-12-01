@@ -1,0 +1,17 @@
+package com.activitylogger.config;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+
+@Configuration
+public class WebConfig {
+
+    public void addCorsMappings(CorsRegistry registry) {
+        // Permite acesso de qualquer origem
+        registry.addMapping("/api/**")
+                .allowedOrigins("http://localhost:8888")  // Front-end
+                .allowedMethods("GET", "POST", "PUT", "DELETE")
+                .allowedHeaders("*")
+                .allowCredentials(true);  // Permite envio de cookies, se necessário
+    }
+}

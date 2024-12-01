@@ -1,0 +1,5 @@
+package com.activitylogger.config;
+
+public class WebConfig {
+
+}

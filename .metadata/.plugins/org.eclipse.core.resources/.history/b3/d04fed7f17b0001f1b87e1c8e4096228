@@ -1,0 +1,19 @@
+package com.activitylogger.controller;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class ThymeleafController {
+
+    @GetMapping("/activities")
+    public String listActivities(Model model) {
+        List<String> activities = List.of("Estudar Spring", "Praticar Java", "Resolver problemas");
+        model.addAttribute("activities", activities);
+        return "activities"; // Nome do arquivo em src/main/resources/templates
+    }
+
+}
