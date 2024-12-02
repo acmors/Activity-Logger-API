@@ -8,14 +8,11 @@ Uma API simples para gerenciar tarefas (CRUD). Este projeto utiliza diversas tec
 - **Spring MVC**
 - **Spring Data JPA**
 - **SpringDoc OpenAPI 3**
-- **MySQL**
+- **Banco de dados em mémoria**
 
 ## Práticas Adotadas
 
 - **SOLID**
-- **DRY (Don’t Repeat Yourself)**
-- **YAGNI (You Aren’t Gonna Need It)**
-- **KISS (Keep It Simple, Stupid)**
 - **API REST**
 - **Consultas com Spring Data JPA**
 - **Injeção de Dependências**
